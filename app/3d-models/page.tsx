@@ -4,8 +4,8 @@ import type { Model } from "@/app/types";
 export default async function ModelsPage() {
   const models = await getAllModels();
   return models.map((model: Model) => (
-    <Link href={`/3d-models/${model.id.toString()}`}>
-      <p key={model.id}>{model.name}</p>
+    <Link key={model.id} href={`/3d-models/${model.id.toString()}`}>
+      <p>{model.name}</p>
     </Link>
   ));
 }
