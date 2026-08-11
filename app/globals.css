@@ -35,8 +35,4 @@ h6 {
   font-family: var(--font-montserrat-alternates), sans-serif;
 }
 
-a.is-active {
-  color: var(--color-orange-accent);
-  font-weight: 900;
-  padding-bottom: 0.25rem;
-}
+

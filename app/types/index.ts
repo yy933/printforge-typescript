@@ -55,5 +55,6 @@ export type PillProps = {
 export type NavLinkProps = {
   href: string;
   children: ReactNode;
-  className?: string
+  isActive: boolean;
+  className?: string;
 };

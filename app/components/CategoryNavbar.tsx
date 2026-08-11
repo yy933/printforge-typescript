@@ -16,12 +16,7 @@ export default function CategoryNavbar() {
         <div className="relative">
           <nav className="w-full overflow-x-auto md:overflow-visible scrollbar-hide">
             <ul className="flex px-4 py-3 space-x-4 whitespace-nowrap md:flex-col md:p-0 md:space-x-0 md:space-y-3">
-              <NavLink
-                href="/3d-models"
-                className={
-                  pathname === "/3d-models" ? "is-active" : "text-gray-500"
-                }
-              >
+              <NavLink href="/3d-models" isActive={pathname === "/3d-models"}>
                 All
               </NavLink>
               {categories.map((item) => {
@@ -29,11 +24,7 @@ export default function CategoryNavbar() {
                 const isActive = pathname === href;
 
                 return (
-                  <NavLink
-                    href={href}
-                    key={item.slug}
-                    className={isActive ? "is-active" : "text-gray-500"}
-                  >
+                  <NavLink href={href} key={item.slug} isActive={isActive}>
                     {item.displayName}
                   </NavLink>
                 );

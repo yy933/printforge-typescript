@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <header className="w-full bg-white">
       <nav className="flex justify-between px-6 py-4">
-        <NavLink href="/">
+        <NavLink href="/" isActive={pathname === "/"}>
           <div className="relative cursor-pointer">
             {/* Desktop Logo */}
             <img
@@ -26,22 +26,21 @@ export default function Navbar() {
           </div>
         </NavLink>
         <ul className="flex items-center gap-2.5">
-          <li className="text-sm uppercase cursor-pointer">
-            <NavLink
-              href="/3d-models"
-              className={pathname === "/3d-models" ? "is-active" : undefined}
-            >
-              3D Models
-            </NavLink>
-          </li>
-          <li className="text-sm uppercase cursor-pointer">
-            <NavLink
-              href="/about"
-              className={pathname === "/about" ? "is-active" : undefined}
-            >
-              About
-            </NavLink>
-          </li>
+          <NavLink
+            className="text-sm uppercase cursor-pointer"
+            href="/3d-models"
+            isActive={pathname === "/3d-models"}
+          >
+            3D Models
+          </NavLink>
+
+          <NavLink
+            className="text-sm uppercase cursor-pointer"
+            href="/about"
+            isActive={pathname === "/about"}
+          >
+            About
+          </NavLink>
         </ul>
       </nav>
     </header>
