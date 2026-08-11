@@ -1,11 +1,7 @@
-import Link from "next/link";
+import ModelsGrid from "@/app/components/ModelsGrid";
 import { getAllModels } from "@/app/lib/models";
-import type { Model } from "@/app/types";
-export default async function ModelsPage() {
+
+export default async function Page() {
   const models = await getAllModels();
-  return models.map((model: Model) => (
-    <Link key={model.id} href={`/3d-models/${model.id.toString()}`}>
-      <p>{model.name}</p>
-    </Link>
-  ));
+  return <ModelsGrid title="3D Models" models={models} />;
 }
