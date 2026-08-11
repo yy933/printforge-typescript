@@ -20,6 +20,10 @@ export type CategoriesData = {
   categories: Category[];
 };
 
+export type GetModelsParams = {
+  category?: string;
+};
+
 export type CategoryNamePageProps = {
   params: Promise<{
     categoryName: string;
@@ -27,6 +31,12 @@ export type CategoryNamePageProps = {
 };
 
 // Page Types
+export type CategoryPageProps = {
+  params: Promise<{
+    categoryName: string;
+  }>;
+};
+
 export type RootLayoutProps = Readonly<{
   children: React.ReactNode;
 }>;
