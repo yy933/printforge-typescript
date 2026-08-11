@@ -34,6 +34,9 @@ h6 {
   font-family: var(--font-montserrat-alternates), sans-serif;
 }
 
-a.is-active{
-  text-decoration: underline;
+a.is-active {
+  color: black;
+  font-weight: 900;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid black;
 }
