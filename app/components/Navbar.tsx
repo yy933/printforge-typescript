@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
 import PFLogoIcon from "@/public/printforge-logo-icon.svg";
 import PFLogo from "@/public/printforge-logo.svg";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <header className="w-full bg-white">
       <nav className="flex justify-between px-6 py-4">
@@ -24,10 +27,20 @@ export default function Navbar() {
         </Link>
         <ul className="flex items-center gap-2.5">
           <li className="text-sm uppercase cursor-pointer">
-            <Link href="/3d-models">3D Models</Link>
+            <Link
+              href="/3d-models"
+              className={pathname === "/3d-models" ? "is-active" : undefined}
+            >
+              3D Models
+            </Link>
           </li>
           <li className="text-sm uppercase cursor-pointer">
-            <Link href="/about">About</Link>
+            <Link
+              href="/about"
+              className={pathname === "/about" ? "is-active" : undefined}
+            >
+              About
+            </Link>
           </li>
         </ul>
       </nav>

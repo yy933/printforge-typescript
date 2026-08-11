@@ -33,3 +33,7 @@ h5,
 h6 {
   font-family: var(--font-montserrat-alternates), sans-serif;
 }
+
+a.is-active{
+  text-decoration: underline;
+}
