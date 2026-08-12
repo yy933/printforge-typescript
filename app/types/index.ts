@@ -47,6 +47,12 @@ export type ModelDetailPageProps = {
   }>;
 };
 
+export type ModelsPageProps = {
+  searchParams: Promise<{
+    q?: string;
+  }>;
+};
+
 // Components Types
 export type ModelCardProps = {
   model: Model;
