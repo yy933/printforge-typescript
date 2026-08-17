@@ -1,5 +1,5 @@
-import { getDBConnection } from "@/app/lib/db";
-import models from "@/app/lib/data/models.json";
+import { getDBConnection } from "@/lib/db";
+import models from "@/lib/data/models.json";
 
 async function seedModels() {
   const db = await getDBConnection();

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa6";
 import Pill from "@/app/components/Pill";
 import type { ModelDetailPageProps } from "@/app/types";
-import { getModelById } from "@/app/lib/models";
+import { getModelById } from "@/lib/models";
 import placeholderImg from "@/public/placeholder.jpg";
 
 export default async function ModelDetailPage({
@@ -41,9 +41,7 @@ export default async function ModelDetailPage({
           </div>
           <h1 className="mb-6 text-4xl font-bold">{model.name}</h1>
 
-          <Pill className="mb-6 w-fit">
-            {model.category}
-          </Pill>
+          <Pill className="mb-6 w-fit">{model.category}</Pill>
 
           <div className="mb-6 prose prose-lg max-w-none">
             <p className="leading-relaxed text-gray-700">{model.description}</p>

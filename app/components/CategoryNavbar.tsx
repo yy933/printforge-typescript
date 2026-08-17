@@ -1,7 +1,7 @@
 "use client";
 
 import NavLink from "@/app/components/NavLink";
-import { getAllCategories } from "@/app/lib/categories";
+import { getAllCategories } from "@/lib/categories";
 import { usePathname } from "next/navigation";
 import path from "path";
 
