@@ -1,7 +1,7 @@
 import ModelsGrid from "@/app/components/ModelsGrid";
 import { getModels } from "@/app/lib/models";
 import type { ModelsPageProps, Model } from "@/app/types";
-import Form from 'next/form';
+import Form from "next/form";
 
 export default async function Page({ searchParams }: ModelsPageProps) {
   const models = await getModels();

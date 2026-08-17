@@ -83,6 +83,7 @@ export default function AboutPage() {
             knowledge and creativity that pushes the boundaries of what's
             possible with 3D printing.
           </p>
+         
           <p className="text-gray-700">
             Whether you're a hobbyist looking for your next weekend project, an
             educator seeking teaching materials, or a professional designer
