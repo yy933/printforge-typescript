@@ -9,3 +9,16 @@ export async function getCategories() {
     await db.close();
   }
 }
+
+export async function getCategoryBySlug(slug: string) {
+  const db = await getDBConnection();
+  try {
+    const categoryData = await db.get(
+      "SELECT * FROM categories WHERE slug = ?",
+      [slug],
+    );
+    return categoryData;
+  } finally {
+    await db.close();
+  }
+}
