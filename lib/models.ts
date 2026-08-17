@@ -21,3 +21,13 @@ export async function getModelsByCategorySlug(categorySlug: string) {
     await db.close();
   }
 }
+
+export async function getModelById(id: string | number) {
+  const db = await getDBConnection();
+  try {
+    const foundModel = await db.get("SELECT * FROM models WHERE id = ?", [id]);
+    return foundModel;
+  } finally {
+    await db.close();
+  }
+}
