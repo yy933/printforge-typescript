@@ -15,5 +15,5 @@ export function getCategoryBySlug(slug: string): Category {
 
 export function getDisplayNameFromSlug(slug: string): string {
   const category = getCategoryBySlug(slug);
-  return category.displayName;
+  return category.name;
 }

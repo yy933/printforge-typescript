@@ -12,7 +12,7 @@ export type Model = {
 };
 
 export type Category = {
-  displayName: string;
+  name: string;
   slug: string;
 };
 

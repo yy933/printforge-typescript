@@ -2,15 +2,17 @@
 
 import NavLink from "@/app/components/NavLink";
 // import { getAllCategories } from "@/app/utils/categories";
-import { getCategories } from "@/lib/categories
+import type { Category } from "@/app/types";
 import { usePathname } from "next/navigation";
 import path from "path";
 
-export default function CategoryNavbar() {
+export default function CategoryNavbar({
+  categories,
+}: {
+  categories: Category[];
+}) {
   // const categories = getAllCategories();
   const pathname = usePathname();
-  const categories = await getCategories();
-
 
   return (
     <>
@@ -28,7 +30,7 @@ export default function CategoryNavbar() {
 
                 return (
                   <NavLink href={href} key={item.slug} isActive={isActive}>
-                    {item.displayName}
+                    {item.name}
                   </NavLink>
                 );
               })}

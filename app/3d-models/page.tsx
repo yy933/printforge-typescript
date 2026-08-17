@@ -1,5 +1,6 @@
 import ModelsGrid from "@/app/components/ModelsGrid";
-import { getModels } from "@/app/utils/models";
+// import { getModels } from "@/app/utils/models";
+import { getModels } from "@/lib/models";
 import type { ModelsPageProps, Model } from "@/app/types";
 import Form from "next/form";
 
@@ -18,6 +19,8 @@ export default async function Page({ searchParams }: ModelsPageProps) {
         return nameMatch || descriptionMatch;
       })
     : models;
+
+ 
   return (
     <>
       <Form action="/3d-models" className="w-full px-4 md:max-w-xl">
