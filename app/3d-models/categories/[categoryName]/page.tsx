@@ -1,5 +1,5 @@
 import ModelsGrid from "@/app/components/ModelsGrid";
-import { getCategoryBySlug } from "@/lib/categories";
+import { getCategoryBySlug } from "@/app/utils/categories";
 import { getModels } from "@/app/utils/models";
 import type { CategoryPageProps } from "@/app/types";
 
