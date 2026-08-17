@@ -1,13 +1,16 @@
 "use client";
 
 import NavLink from "@/app/components/NavLink";
-import { getAllCategories } from "@/app/utils/categories";
+// import { getAllCategories } from "@/app/utils/categories";
+import { getCategories } from "@/lib/categories
 import { usePathname } from "next/navigation";
 import path from "path";
 
 export default function CategoryNavbar() {
-  const categories = getAllCategories();
+  // const categories = getAllCategories();
   const pathname = usePathname();
+  const categories = await getCategories();
+
 
   return (
     <>
