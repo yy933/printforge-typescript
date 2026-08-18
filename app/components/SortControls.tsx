@@ -1,15 +1,4 @@
 import SortButton from "./SortButton";
-/*  
-CHALLENGE  
-Update the buttons so each one pushes a different sort value:
-
-- A-Z → sort=alpha  
-- Popular → sort=popular  
-- Most Recent → sort=recent  
-
-You can pass the sort value into your handler however you like
-*/
-
 
 export default function SortControls() {
   const sortMap = {

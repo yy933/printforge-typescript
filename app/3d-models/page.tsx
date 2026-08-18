@@ -5,9 +5,10 @@ import type { ModelsPageProps, Model } from "@/app/types";
 import SearchForm from "@/app/components/SearchForm";
 
 export default async function Page({ searchParams }: ModelsPageProps) {
-  const { q } = (await searchParams) ?? {};
+  const { q, sort } = (await searchParams) ?? {};
   const queryLower = q?.toLowerCase();
-  const filteredModels = await getModels(queryLower);
+  const sortLower = sort?.toLowerCase();
+  const filteredModels = await getModels(queryLower, sortLower);
 
   return (
     <>

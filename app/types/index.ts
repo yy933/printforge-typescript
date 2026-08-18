@@ -50,6 +50,7 @@ export type ModelDetailPageProps = {
 export type ModelsPageProps = {
   searchParams: Promise<{
     q?: string;
+    sort?: string;
   }>;
 };
 

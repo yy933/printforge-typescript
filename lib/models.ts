@@ -1,12 +1,24 @@
 import { getDBConnection } from "@/lib/db";
-export async function getModels(searchTerm?: string) {
+
+type SortOption = "alpha" | "popular" | "recent";
+export async function getModels(searchTerm?: string, sort?: string) {
   const db = await getDBConnection();
   let sql = "SELECT * FROM models";
   const placeholders = [];
+  const sortMap: Record<SortOption, string> = {
+    alpha: " ORDER BY name ASC",
+    popular: " ORDER BY likes DESC",
+    recent: " ORDER BY dateAdded DESC",
+  };
+ 
   try {
     if (searchTerm) {
-      sql = `SELECT * FROM models WHERE name LIKE ? OR description LIKE ? `;
+      sql += ` WHERE name LIKE ? OR description LIKE ? `;
       placeholders.push(`%${searchTerm}%`, `%${searchTerm}%`);
+    }
+
+    if (sort && sort in sortMap) {
+      sql += sortMap[sort as SortOption]
     }
     const modelsData = await db.all(sql, placeholders);
     return modelsData;
