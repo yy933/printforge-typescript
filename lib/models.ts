@@ -1,13 +1,20 @@
 import { getDBConnection } from "@/lib/db";
-export async function getModels() {
+export async function getModels(searchTerm?: string) {
   const db = await getDBConnection();
+  let sql = "SELECT * FROM models";
+  const placeholders = [];
   try {
-    const modelsData = await db.all("SELECT * FROM models;");
+    if (searchTerm) {
+      sql = `SELECT * FROM models WHERE name LIKE ? OR description LIKE ? `;
+      placeholders.push(`%${searchTerm}%`, `%${searchTerm}%`);
+    }
+    const modelsData = await db.all(sql, placeholders);
     return modelsData;
   } finally {
     await db.close();
   }
 }
+
 
 export async function getModelsByCategorySlug(categorySlug: string) {
   const db = await getDBConnection();
@@ -31,3 +38,5 @@ export async function getModelById(id: string | number) {
     await db.close();
   }
 }
+
+
