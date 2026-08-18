@@ -1,7 +1,7 @@
 import ModelsGrid from "@/app/components/ModelsGrid";
 // import { getCategoryBySlug } from "@/app/utils/categories";
 import { getModelsByCategorySlug } from "@/lib/models";
-import {getCategoryBySlug} from "@/lib/categories";
+import { getCategoryBySlug } from "@/lib/categories";
 import type { CategoryPageProps } from "@/app/types";
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

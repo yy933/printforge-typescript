@@ -3,6 +3,7 @@ import ModelsGrid from "@/app/components/ModelsGrid";
 import { getModels } from "@/lib/models";
 import type { ModelsPageProps, Model } from "@/app/types";
 import Form from "next/form";
+import SearchForm from "@/app/components/SearchForm";
 
 export default async function Page({ searchParams }: ModelsPageProps) {
   const models = await getModels();
@@ -20,19 +21,9 @@ export default async function Page({ searchParams }: ModelsPageProps) {
       })
     : models;
 
- 
   return (
     <>
-      <Form action="/3d-models" className="w-full px-4 md:max-w-xl">
-        <input
-          type="search"
-          name="q"
-          placeholder="Search 3D models..."
-          autoComplete="off"
-          defaultValue={q}
-          className="w-full py-3 pl-5 pr-5 text-sm placeholder-gray-500 bg-white border border-[#606060] rounded-full focus:border-[#606060] focus:outline-none focus:ring-0 md:text-base"
-        ></input>
-      </Form>
+      <SearchForm q={q} />
       <ModelsGrid title="3D Models" models={filteredModels} />
     </>
   );
