@@ -6,10 +6,15 @@ const sortMap: Record<SortOption, string> = {
   popular: " ORDER BY likes DESC",
   recent: " ORDER BY dateAdded DESC",
 };
-export async function getModels(searchTerm?: string, sort?: string) {
+
+export async function getModels(
+  categorySlug?: string,
+  searchTerm?: string,
+  sort?: string,
+) {
   const db = await getDBConnection();
-  let sql = "SELECT * FROM models";
-  const placeholders = [];
+  let sql = "SELECT * FROM models WHERE category = ?";
+  const placeholders = [categorySlug];
 
   try {
     if (searchTerm) {
@@ -22,24 +27,6 @@ export async function getModels(searchTerm?: string, sort?: string) {
     }
     const modelsData = await db.all(sql, placeholders);
     return modelsData;
-  } finally {
-    await db.close();
-  }
-}
-
-export async function getModelsByCategorySlug(
-  categorySlug: string,
-  sort?: string,
-) {
-  const db = await getDBConnection();
-  let sql = "SELECT * FROM models WHERE category = ?";
-
-  try {
-    if (sort && sort in sortMap) {
-      sql += sortMap[sort as SortOption];
-    }
-    const filteredModels = await db.all(sql, [categorySlug]);
-    return filteredModels;
   } finally {
     await db.close();
   }
