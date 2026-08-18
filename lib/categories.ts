@@ -1,5 +1,5 @@
 import { getDBConnection } from "./db";
-
+type SortOption = "alpha" | "popular" | "recent";
 export async function getCategories() {
   const db = await getDBConnection();
   try {
@@ -12,6 +12,7 @@ export async function getCategories() {
 
 export async function getCategoryBySlug(slug: string) {
   const db = await getDBConnection();
+
   try {
     const categoryData = await db.get(
       "SELECT * FROM categories WHERE slug = ?",

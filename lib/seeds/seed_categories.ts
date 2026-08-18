@@ -19,7 +19,7 @@ async function seedCategories() {
 
   // loop through categories and run the INSERT query for each one
   for (const category of categories) {
-    await insertCategory.run(category.slug, category.displayName);
+    await insertCategory.run(category.slug, category.name);
   }
 
   // finalise the prepared statement and close the database connection

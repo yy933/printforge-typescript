@@ -10,7 +10,7 @@ export async function getModels(searchTerm?: string, sort?: string) {
     popular: " ORDER BY likes DESC",
     recent: " ORDER BY dateAdded DESC",
   };
- 
+
   try {
     if (searchTerm) {
       sql += ` WHERE name LIKE ? OR description LIKE ? `;
@@ -18,7 +18,7 @@ export async function getModels(searchTerm?: string, sort?: string) {
     }
 
     if (sort && sort in sortMap) {
-      sql += sortMap[sort as SortOption]
+      sql += sortMap[sort as SortOption];
     }
     const modelsData = await db.all(sql, placeholders);
     return modelsData;
@@ -27,14 +27,23 @@ export async function getModels(searchTerm?: string, sort?: string) {
   }
 }
 
-
-export async function getModelsByCategorySlug(categorySlug: string) {
+export async function getModelsByCategorySlug(
+  categorySlug: string,
+  sort?: string,
+) {
   const db = await getDBConnection();
+  let sql = "SELECT * FROM models WHERE category = ?";
+  const sortMap: Record<SortOption, string> = {
+    alpha: " ORDER BY name ASC",
+    popular: " ORDER BY likes DESC",
+    recent: " ORDER BY dateAdded DESC",
+  };
+
   try {
-    const filteredModels = await db.all(
-      `SELECT * FROM models WHERE category = ?`,
-      [categorySlug],
-    );
+    if (sort && sort in sortMap) {
+      sql += sortMap[sort as SortOption];
+    }
+    const filteredModels = await db.all(sql, [categorySlug]);
     return filteredModels;
   } finally {
     await db.close();
@@ -50,5 +59,3 @@ export async function getModelById(id: string | number) {
     await db.close();
   }
 }
-
-
