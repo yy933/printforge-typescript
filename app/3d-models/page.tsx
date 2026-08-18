@@ -6,20 +6,9 @@ import Form from "next/form";
 import SearchForm from "@/app/components/SearchForm";
 
 export default async function Page({ searchParams }: ModelsPageProps) {
-  const models = await getModels();
   const { q } = (await searchParams) ?? {};
-
   const queryLower = q?.toLowerCase();
-  const filteredModels = queryLower
-    ? models.filter((model: Model) => {
-        const nameMatch = model.name?.toLowerCase().includes(queryLower);
-        const descriptionMatch = model.description
-          ?.toLowerCase()
-          .includes(queryLower);
-
-        return nameMatch || descriptionMatch;
-      })
-    : models;
+  const filteredModels = await getModels(queryLower);
 
   return (
     <>
