@@ -9,11 +9,12 @@ export default async function Page({ searchParams }: ModelsPageProps) {
   const { q } = (await searchParams) ?? {};
   const queryLower = q?.toLowerCase();
   const filteredModels = await getModels(queryLower);
+  const title = q ? `Search results for "${q}"` : "3D Models";
 
   return (
     <>
       <SearchForm q={q} />
-      <ModelsGrid title="3D Models" models={filteredModels} />
+      <ModelsGrid title={title} models={filteredModels} />
     </>
   );
 }
