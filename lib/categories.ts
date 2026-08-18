@@ -1,5 +1,5 @@
 import { getDBConnection } from "./db";
-type SortOption = "alpha" | "popular" | "recent";
+
 export async function getCategories() {
   const db = await getDBConnection();
   try {

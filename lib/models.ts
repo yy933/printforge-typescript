@@ -1,15 +1,15 @@
 import { getDBConnection } from "@/lib/db";
 
 type SortOption = "alpha" | "popular" | "recent";
+const sortMap: Record<SortOption, string> = {
+  alpha: " ORDER BY name ASC",
+  popular: " ORDER BY likes DESC",
+  recent: " ORDER BY dateAdded DESC",
+};
 export async function getModels(searchTerm?: string, sort?: string) {
   const db = await getDBConnection();
   let sql = "SELECT * FROM models";
   const placeholders = [];
-  const sortMap: Record<SortOption, string> = {
-    alpha: " ORDER BY name ASC",
-    popular: " ORDER BY likes DESC",
-    recent: " ORDER BY dateAdded DESC",
-  };
 
   try {
     if (searchTerm) {
@@ -33,11 +33,6 @@ export async function getModelsByCategorySlug(
 ) {
   const db = await getDBConnection();
   let sql = "SELECT * FROM models WHERE category = ?";
-  const sortMap: Record<SortOption, string> = {
-    alpha: " ORDER BY name ASC",
-    popular: " ORDER BY likes DESC",
-    recent: " ORDER BY dateAdded DESC",
-  };
 
   try {
     if (sort && sort in sortMap) {
