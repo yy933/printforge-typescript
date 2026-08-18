@@ -59,8 +59,9 @@ export type ModelCardProps = {
 };
 
 export type ModelsGridProps = {
-  title: string;
   models: Model[];
+  categoryName?: string;
+  search?: string;
 };
 
 export type PillProps = {
