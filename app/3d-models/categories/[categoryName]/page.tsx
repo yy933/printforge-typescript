@@ -1,5 +1,4 @@
-import ModelsGrid from "@/app/components/ModelsGrid";
-// import { getCategoryBySlug } from "@/app/utils/categories";
+import ModelsBrowser from "@/app/components/ModelsBrowser";
 import { getModels, SortOption } from "@/lib/models";
 import { getCategoryBySlug } from "@/lib/categories";
 import type { CategoryPageProps } from "@/app/types";
@@ -16,5 +15,5 @@ export default async function CategoryPage({
     sort: sort as SortOption | undefined,
   });
 
-  return <ModelsGrid categoryName={category.name} models={models} />;
+  return <ModelsBrowser categoryName={category.name} models={models} />;
 }

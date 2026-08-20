@@ -10,5 +10,5 @@ export default async function Page({ searchParams }: ModelsPageProps) {
     sort: sort as SortOption | undefined,
   });
 
-  return <ModelsBrowser models={models} q={q} />;
+  return <ModelsBrowser models={models} search={q} />;
 }
