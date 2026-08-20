@@ -17,7 +17,7 @@ export default async function CategoryPage({
   const models = await getModels({
     categorySlug: category.slug,
     sort: sort as SortOption | undefined,
-    q
+    searchTerm: q
   });
 
   return <ModelsBrowser categoryName={category.name} models={models} search={q} />;
