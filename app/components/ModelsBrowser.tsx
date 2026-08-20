@@ -9,7 +9,7 @@ interface ModelsBrowserProps {
   search?: string;
   categoryName?: string;
 }
-export default async function ModelsBrowser({ models, search, categoryName }: ModelsBrowserProps) {
+export default function ModelsBrowser({ models, search, categoryName }: ModelsBrowserProps) {
  const [isPending, startTransition] = useTransition();
 
   return (
