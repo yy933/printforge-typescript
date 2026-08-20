@@ -1,8 +1,19 @@
 import ModelCard from "@/app/components/ModelCard";
 import SortControls from "@/app/components/SortControls";
 import LoadingUI from "@/app/components/LoadingUI";
+import NotFoundUI from "@/app/components/NotFoundUI";
 import { ModelsGridProps, Model } from "@/app/types";
-
+/*
+CHALLENGE - Handle no search results
+1. Keep the isPending check first
+   - If isPending is true, show LoadingUI
+3. If isPending is false, check whether the models array has any models inside it
+4. If there are models:
+   - render the existing grid
+5. If there are no models:
+   - render the NotFoundUI component instead
+6. Customise the NotFoundUI content for this situation
+*/
 export default function ModelsGrid({
   models,
   categoryName,
@@ -24,12 +35,19 @@ export default function ModelsGrid({
 
       {isPending ? (
         <LoadingUI>Loading models...</LoadingUI>
-      ) : (
+      ) : models.length > 0 ? (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {models.map((model: Model) => (
             <ModelCard key={model.id} model={model} />
           ))}
         </div>
+      ) : (
+        <NotFoundUI
+          title={`No search results for "${search}"`}
+          subtitle="We can't find any models that match your search query"
+          link_text="See all models"
+          link_href="/3d-models"
+        />
       )}
     </div>
   );
