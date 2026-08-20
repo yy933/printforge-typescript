@@ -5,6 +5,7 @@ import { useTransition } from "react";
 import { BrowserProvider } from "@/app/context/BrowserContext";
 import type { Model } from "@/app/types";
 import SearchForm from "@/app/components/SearchForm";
+import PaginationControls from "@/app/components/PaginationControls";
 interface ModelsBrowserProps {
   models: Model[];
   search?: string;
@@ -19,6 +20,7 @@ export default function ModelsBrowser({
 
   return (
     <BrowserProvider value={{ isPending, startTransition }}>
+      <PaginationControls />
       <SearchForm q={search} />
       <ModelsGrid
         isPending={isPending}
