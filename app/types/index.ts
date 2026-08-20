@@ -66,6 +66,7 @@ export type ModelsGridProps = {
   models: Model[];
   categoryName?: string;
   search?: string;
+  isPending: boolean;
 };
 
 export type PillProps = {

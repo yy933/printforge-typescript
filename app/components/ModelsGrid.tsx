@@ -1,11 +1,13 @@
 import ModelCard from "@/app/components/ModelCard";
 import SortControls from "@/app/components/SortControls";
+import LoadingUI from "@/app/components/LoadingUI";
 import { ModelsGridProps, Model } from "@/app/types";
 
 export default function ModelsGrid({
   models,
   categoryName,
   search,
+  isPending,
 }: ModelsGridProps) {
   let title = "3D Models";
   if (categoryName) {
@@ -19,11 +21,16 @@ export default function ModelsGrid({
         <h1 className="text-3xl font-bold">{title}</h1>
         <SortControls />
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {models.map((model: Model) => (
-          <ModelCard key={model.id} model={model} />
-        ))}
-      </div>
+
+      {isPending ? (
+        <LoadingUI>Loading models...</LoadingUI>
+      ) : (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {models.map((model: Model) => (
+            <ModelCard key={model.id} model={model} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
