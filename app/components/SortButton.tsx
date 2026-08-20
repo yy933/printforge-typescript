@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useBrowserContext } from "@/app/context/BrowserContext";
 interface SortButtonProps {
   sort: string;
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export default function SortButton({
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { startTransition } = useBrowserContext();
 
   const isActive = searchParams.get("sort") === sort;
 
@@ -19,7 +21,9 @@ export default function SortButton({
     const urlSearchParams = new URLSearchParams(searchParams.toString());
     urlSearchParams.set("sort", sort);
     const url = `${pathname}?${urlSearchParams.toString()}`;
-    router.push(url);
+    startTransition(() => {
+      router.push(url);
+    });
   }
   return (
     <button

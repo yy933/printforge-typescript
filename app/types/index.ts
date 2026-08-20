@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import type { ReactNode, TransitionStartFunction } from "react";
+
 
 // Data Types
 export type Model = {
@@ -67,6 +68,7 @@ export type ModelsGridProps = {
   categoryName?: string;
   search?: string;
   isPending: boolean;
+  startTransition: TransitionStartFunction;
 };
 
 export type PillProps = {
