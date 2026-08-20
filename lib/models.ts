@@ -12,12 +12,17 @@ interface GetModelsParams {
   searchTerm?: string;
   sort?: SortOption;
   q?: string;
+  page?: number;
+  modelsPerPage?: number;
 }
 
 export async function getModels({
   categorySlug,
   searchTerm,
   sort,
+  page = 1,
+  modelsPerPage = 12
+
 }: GetModelsParams = {}) {
   const db = await getDBConnection();
   let sql = "SELECT * FROM models";

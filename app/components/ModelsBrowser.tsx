@@ -10,6 +10,8 @@ interface ModelsBrowserProps {
   models: Model[];
   search?: string;
   categoryName?: string;
+  page?: number;
+  modelsPerPage?: number;
 }
 export default function ModelsBrowser({
   models,
