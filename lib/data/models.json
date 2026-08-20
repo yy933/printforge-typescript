@@ -466,5 +466,185 @@
     "image": "https://place-hold.it/300",
     "category": "household",
     "dateAdded": "2023-03-28T11:10:00Z"
+  },
+  {
+    "id": 53,
+    "name": "Dragon Miniature",
+    "description": "High-detail tabletop rpg dragon figure",
+    "likes": 2105,
+    "image": "https://place-hold.it/300",
+    "category": "miniatures",
+    "dateAdded": "2023-04-12T09:15:00Z"
+  },
+  {
+    "id": 54,
+    "name": "Cyberpunk Helmet",
+    "description": "Wearable futuristic helmet cosplay prop",
+    "likes": 3410,
+    "image": "https://place-hold.it/300",
+    "category": "props-cosplay",
+    "dateAdded": "2023-05-25T16:40:00Z"
+  },
+  {
+    "id": 55,
+    "name": "Geometric Vase",
+    "description": "Modern low-poly decorative plant vase",
+    "likes": 892,
+    "image": "https://place-hold.it/300",
+    "category": "art",
+    "dateAdded": "2023-06-18T11:20:00Z"
+  },
+  {
+    "id": 56,
+    "name": "Filament Spool Holder",
+    "description": "Smooth ball-bearing spool roller",
+    "likes": 1560,
+    "image": "https://place-hold.it/300",
+    "category": "3d-printer",
+    "dateAdded": "2023-08-02T14:05:00Z"
+  },
+  {
+    "id": 57,
+    "name": "Anatomy Skeleton Model",
+    "description": "Educational desktop human skeleton",
+    "likes": 743,
+    "image": "https://place-hold.it/300",
+    "category": "education",
+    "dateAdded": "2023-09-14T08:50:00Z"
+  },
+  {
+    "id": 58,
+    "name": "Custom Keychain Set",
+    "description": "Minimalist everyday carry fashion item",
+    "likes": 412,
+    "image": "https://place-hold.it/300",
+    "category": "fashion",
+    "dateAdded": "2023-10-30T19:30:00Z"
+  },
+  {
+    "id": 59,
+    "name": "Cable Management Clip",
+    "description": "Desk organization accessory for cables",
+    "likes": 2890,
+    "image": "https://place-hold.it/300",
+    "category": "household",
+    "dateAdded": "2023-11-11T10:15:00Z"
+  },
+  {
+    "id": 60,
+    "name": "Precision Caliper Gauge",
+    "description": "Printable measurement tool for workshop",
+    "likes": 1120,
+    "image": "https://place-hold.it/300",
+    "category": "tools",
+    "dateAdded": "2023-12-05T13:45:00Z"
+  },
+  {
+    "id": 61,
+    "name": "Chess Set & Board",
+    "description": "Abstract design chess pieces and folding board",
+    "likes": 1845,
+    "image": "https://place-hold.it/300",
+    "category": "toys-games",
+    "dateAdded": "2024-01-22T15:10:00Z"
+  },
+  {
+    "id": 62,
+    "name": "RC Quadcopter Frame",
+    "description": "Lightweight drone frame for DIY builders",
+    "likes": 980,
+    "image": "https://place-hold.it/300",
+    "category": "hobby-diy",
+    "dateAdded": "2024-02-14T09:25:00Z"
+  },
+  {
+    "id": 63,
+    "name": "Mechanical Light Switch",
+    "description": "Interactive clicky wall switch plate cover",
+    "likes": 2510,
+    "image": "https://place-hold.it/300",
+    "category": "household",
+    "dateAdded": "2024-03-01T12:00:00Z"
+  },
+  {
+    "id": 64,
+    "name": "Voronoi Wall Art",
+    "description": "Parametric decorative panel for home decor",
+    "likes": 1335,
+    "image": "https://place-hold.it/300",
+    "category": "art",
+    "dateAdded": "2024-04-10T18:20:00Z"
+  },
+  {
+    "id": 65,
+    "name": "Sci-Fi Blaster Prop",
+    "description": "Full-scale cosplay replica weapon",
+    "likes": 3150,
+    "image": "https://place-hold.it/300",
+    "category": "props-cosplay",
+    "dateAdded": "2024-05-04T17:35:00Z"
+  },
+  {
+    "id": 66,
+    "name": "Solar System Globe",
+    "description": "3D planetary globe kit for astronomy teaching",
+    "likes": 1620,
+    "image": "https://place-hold.it/300",
+    "category": "education",
+    "dateAdded": "2024-06-19T08:10:00Z"
+  },
+  {
+    "id": 67,
+    "name": "Modular Tool Rack",
+    "description": "Wall-mounted organizer for pliers and screwdrivers",
+    "likes": 2040,
+    "image": "https://place-hold.it/300",
+    "category": "tools",
+    "dateAdded": "2024-07-15T11:50:00Z"
+  },
+  {
+    "id": 68,
+    "name": "Fantasy Dungeon Doors",
+    "description": "Set of 5 miniature terrain doors for tabletop games",
+    "likes": 950,
+    "image": "https://place-hold.it/300",
+    "category": "miniatures",
+    "dateAdded": "2024-08-01T14:30:00Z"
+  },
+  {
+    "id": 69,
+    "name": "3D Printer Scraper & Holder",
+    "description": "Printbed maintenance tool set",
+    "likes": 610,
+    "image": "https://place-hold.it/300",
+    "category": "3d-printer",
+    "dateAdded": "2024-08-28T10:05:00Z"
+  },
+  {
+    "id": 70,
+    "name": "Statement Eyeglass Frame",
+    "description": "Customizable 3D printed fashion glasses",
+    "likes": 530,
+    "image": "https://place-hold.it/300",
+    "category": "fashion",
+    "dateAdded": "2024-09-10T16:15:00Z"
+  },
+  {
+    "id": 71,
+    "name": "Fidget Spinner Gear Box",
+    "description": "Planetary gear fidget toy",
+    "likes": 2780,
+    "image": "https://place-hold.it/300",
+    "category": "toys-games",
+    "dateAdded": "2024-10-05T21:00:00Z"
+  },
+  {
+    "id": 72,
+    "name": "Soldering Helping Hands",
+    "description": "Flexible arms station for electronics DIY",
+    "likes": 1890,
+    "image": "https://place-hold.it/300",
+    "category": "hobby-diy",
+    "dateAdded": "2024-11-01T13:40:00Z"
   }
 ]
