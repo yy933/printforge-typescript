@@ -15,7 +15,7 @@ export default function ModelsBrowser({ models, search, categoryName }: ModelsBr
   return (
     <>
       <SearchForm q={search} />
-      <ModelsGrid isPending={isPending} models={models} search={search} />
+      <ModelsGrid isPending={isPending} models={models} search={search} categoryName={categoryName} />
     </>
   );
 }
