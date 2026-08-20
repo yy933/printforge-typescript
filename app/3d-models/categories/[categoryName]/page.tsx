@@ -9,13 +9,16 @@ export default async function CategoryPage({
   searchParams,
 }: CategoryPageProps) {
   const { categoryName } = await params;
-  const { sort } = await searchParams;
+  const sort = (await searchParams)?.sort?.toLowerCase() || "";
+  const q = (await searchParams)?.q?.toLowerCase() || "";
   const category = await getCategoryBySlug(categoryName);
   if (!category) return notFound();
+ 
   const models = await getModels({
     categorySlug: category.slug,
     sort: sort as SortOption | undefined,
+    q
   });
 
-  return <ModelsBrowser categoryName={category.name} models={models} />;
+  return <ModelsBrowser categoryName={category.name} models={models} search={q} />;
 }

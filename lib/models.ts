@@ -11,6 +11,7 @@ interface GetModelsParams {
   categorySlug?: string;
   searchTerm?: string;
   sort?: SortOption;
+  q?: string;
 }
 
 export async function getModels({
