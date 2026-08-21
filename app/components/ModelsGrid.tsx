@@ -12,7 +12,11 @@ export default function ModelsGrid({
 }: ModelsGridProps) {
   let title = "3D Models";
   if (categoryName) {
-    title = categoryName;
+    if (search) {
+      title = `Search results for "${search}" in ${categoryName}`;
+    } else {
+      title = categoryName;
+    }
   } else if (search) {
     title = `Search results for "${search}"`;
   }

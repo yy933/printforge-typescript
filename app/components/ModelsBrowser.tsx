@@ -33,7 +33,7 @@ export default function ModelsBrowser({
         categoryName={categoryName}
         startTransition={startTransition}
       />
-      <PaginationControls totalPages={totalPages} currentPage={currentPage} />
+      {totalPages > 1 && <PaginationControls totalPages={totalPages} currentPage={currentPage} />}
     </BrowserProvider>
   );
 }
