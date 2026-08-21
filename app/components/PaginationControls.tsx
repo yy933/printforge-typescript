@@ -7,11 +7,15 @@ export default function PaginationControls({
   currentPage: number;
 }) {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-  const isActive = (page: number) => page === currentPage; 
+
   return (
     <div className="flex justify-center gap-1">
       {pages.map((page) => (
-        <PaginationButton key={page} page={page} isActive={isActive(page)} />
+        <PaginationButton
+          key={page}
+          page={page}
+          isActive={page === currentPage}
+        />
       ))}
     </div>
   );
