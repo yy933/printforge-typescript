@@ -39,6 +39,7 @@ export type CategoryPageProps = {
   searchParams: Promise<{
     sort?: string;
     q?: string;
+    page?: string
   }>;
 };
 

@@ -10,7 +10,6 @@ interface ModelsBrowserProps {
   models: Model[];
   search?: string;
   categoryName?: string;
-  page: number;
   modelsPerPage?: number;
   totalPages: number;
   currentPage: number;

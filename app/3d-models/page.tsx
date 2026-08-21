@@ -21,7 +21,6 @@ export default async function Page({ searchParams }: ModelsPageProps) {
     <ModelsBrowser
       models={models}
       search={q}
-      page={page}
       modelsPerPage={modelsPerPage}
       totalPages={totalPages}
       currentPage={page}
