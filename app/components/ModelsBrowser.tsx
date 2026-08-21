@@ -25,7 +25,7 @@ export default function ModelsBrowser({
 
   return (
     <BrowserProvider value={{ isPending, startTransition }}>
-      <SearchForm q={search} />
+      <SearchForm search={search} />
       <ModelsGrid
         isPending={isPending}
         models={models}
@@ -37,13 +37,4 @@ export default function ModelsBrowser({
     </BrowserProvider>
   );
 }
-/*
-CHALLENGE - Active PaginationButtons
-1. Accept the `currentPage` prop  
-2. Pass `currentPage` down into `PaginationControls`  
-3. In `PaginationControls`, compare each page number to `currentPage`  
-4. Pass an `isActive` prop into each `PaginationButton`  
-5. In `PaginationButton`, use `isActive` to apply active styling  
-  
-The active page button should use the same orange styling pattern as our active sort buttons.  
-*/
+
