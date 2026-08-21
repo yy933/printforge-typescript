@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PrintForge (printforge-ts)
 
-## Getting Started
+PrintForge is a small Next.js + TypeScript demo for browsing 3D-printable models. It provides category browsing, search, pagination, and per-model pages. The project uses a lightweight SQLite-backed data layer with JSON seed files for development.
 
-First, run the development server:
+**Quick Start**
+
+Prerequisites: Node.js 18+ and npm (or pnpm/yarn). From the repository root:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `dev` script will run the local seed scripts and start the Next.js dev server. Visit http://localhost:3000 to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Scripts**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — seeds local data then runs the dev server
+- `npm run build` — builds the production bundle
+- `npm start` — starts the production server after build
+- `npm run lint` — runs ESLint
 
-## Learn More
+See `package.json` for details and exact script definitions.
 
-To learn more about Next.js, take a look at the following resources:
+**Data & Seeding**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The app ships with JSON fixtures at [lib/data](lib/data) and TypeScript seeders at [lib/seeds](lib/seeds). The dev script runs the seeders automatically, but you can run them manually:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx tsx lib/seeds/seed_models.ts
+npx tsx lib/seeds/seed_categories.ts
+```
 
-## Deploy on Vercel
+The app uses SQLite (see [lib/db.ts](lib/db.ts)) to persist seeded data for local development.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Project Structure (high level)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` — Next.js App Router pages and layout (UI entrypoints)
+- `app/components/` — React components used across pages
+- `lib/` — application logic: DB helpers, models, constants, seed scripts
+- `data/` — static JSON fixtures used by the seeders
+- `public/` — static assets and images
+
+Key files:
+
+- [app/page.tsx](app/page.tsx) — home page
+- [app/3d-models/page.tsx](app/3d-models/page.tsx) — models listing
+- [lib/seeds/seed_models.ts](lib/seeds/seed_models.ts) and [lib/seeds/seed_categories.ts](lib/seeds/seed_categories.ts) — seed scripts
+- [lib/db.ts](lib/db.ts) — SQLite helper
+
+**Development Notes**
+
+- Pagination, filtering and category routes are implemented inside the `app/3d-models` tree.
+- Add or update seed data in `lib/data/models.json` and `lib/data/categories.json`, then re-run the seed scripts.
+- The dev script seeds data automatically to keep the experience repeatable.
+
+**Deployment**
+
+This is a standard Next.js app and can be deployed to Vercel or any platform that supports Next.js. Run `npm run build` and `npm start` to run a production server.
+
+---
+
+For Next.js core docs and advanced features, see https://nextjs.org/docs.
