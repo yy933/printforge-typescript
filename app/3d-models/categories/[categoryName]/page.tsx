@@ -1,5 +1,5 @@
 import ModelsBrowser from "@/app/components/ModelsBrowser";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { getModels, SortOption, getModelCount } from "@/lib/models";
 import { getCategoryBySlug } from "@/lib/categories";
@@ -21,7 +21,7 @@ export default async function CategoryPage({
     categorySlug: category.slug,
     search,
   });
-  const totalPages = Math.ceil(modelsCount / MODELS_PER_PAGE);
+  const totalPages = Math.max(1, Math.ceil(modelsCount / MODELS_PER_PAGE));
 
   const models = await getModels({
     categorySlug: category.slug,
@@ -30,6 +30,9 @@ export default async function CategoryPage({
     page,
     modelsPerPage: MODELS_PER_PAGE,
   });
+
+  if (page < 1 || page > totalPages || sort === null)
+    return redirect(`/3d-models/categories/${category.slug}`);
 
   return (
     <ModelsBrowser
