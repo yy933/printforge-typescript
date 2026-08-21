@@ -15,9 +15,11 @@ export default async function Page({ searchParams }: ModelsPageProps) {
     modelsPerPage: MODELS_PER_PAGE,
   });
   const modelCount = await getModelCount({ search });
-  const totalPages = Math.ceil(modelCount / MODELS_PER_PAGE);
-  if (page < 1 || page > totalPages) return redirect("/3d-models");
-  if (sort === null) return redirect("/3d-models");
+ 
+  const totalPages = Math.max(1, Math.ceil(modelCount / MODELS_PER_PAGE))
+  if (page < 1 || page > totalPages || sort === null)
+    return redirect("/3d-models");
+ 
   return (
     <ModelsBrowser
       models={models}
