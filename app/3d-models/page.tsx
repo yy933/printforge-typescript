@@ -24,6 +24,7 @@ export default async function Page({ searchParams }: ModelsPageProps) {
       page={page}
       modelsPerPage={modelsPerPage}
       totalPages={totalPages}
+      currentPage={page}
     />
   );
 }
