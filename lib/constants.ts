@@ -1,1 +1,1 @@
-export const MODELS_PER_PAGE = 6
+export const MODELS_PER_PAGE = 12

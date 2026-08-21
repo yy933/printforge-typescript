@@ -11,7 +11,6 @@ interface GetModelsParams {
   categorySlug?: string;
   searchTerm?: string;
   sort?: SortOption;
-  q?: string;
   page?: number;
   modelsPerPage?: number;
 }
