@@ -58,6 +58,23 @@ export async function getModels({
   }
 }
 
+export async function getModelCount({ search }: { search?: string }) {
+  const db = await getDBConnection();
+  let sql = "SELECT COUNT(*) as count FROM models";
+  const placeholders: (string | number)[] = [];
+  if (search) {
+    sql += " WHERE (name LIKE ? OR description LIKE ?)";
+    placeholders.push(`%${search}%`, `%${search}%`);
+  }
+  try {
+    const result = await db.get(sql, placeholders);
+
+    return result.count;
+  } finally {
+    await db.close();
+  }
+}
+
 export async function getModelById(id: string | number) {
   const db = await getDBConnection();
   try {
