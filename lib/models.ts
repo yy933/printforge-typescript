@@ -16,18 +16,18 @@ interface GetModelsParams {
   modelsPerPage?: number;
 }
 
+
 export async function getModels({
   categorySlug,
   searchTerm,
   sort,
   page = 1,
-  modelsPerPage = 12
-
+  modelsPerPage = 5,
 }: GetModelsParams = {}) {
   const db = await getDBConnection();
   let sql = "SELECT * FROM models";
   const conditions: string[] = [];
-  const placeholders: string[] = [];
+  const placeholders: (string | number)[] = [];
 
   try {
     if (categorySlug) {
@@ -40,12 +40,19 @@ export async function getModels({
       placeholders.push(`%${searchTerm}%`, `%${searchTerm}%`);
     }
 
+    
     if (conditions.length > 0) {
       sql += " WHERE " + conditions.join(" AND ");
     }
 
     if (sort && sort in sortMap) {
       sql += sortMap[sort];
+    }
+
+    if (page && modelsPerPage) {
+      const offset = modelsPerPage * (page - 1);
+      sql += " LIMIT ? OFFSET ?";
+      placeholders.push(modelsPerPage, offset);
     }
 
     const modelsData = await db.all(sql, placeholders);
