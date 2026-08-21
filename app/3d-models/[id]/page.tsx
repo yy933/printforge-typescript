@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { FaRegHeart } from "react-icons/fa6";
 import Pill from "@/app/components/Pill";
 import type { ModelDetailPageProps } from "@/app/types";
-// import { getModelById } from "@/app/utils/models";
+
 import { getModelById } from "@/lib/models";
 import placeholderImg from "@/public/placeholder.jpg";
 

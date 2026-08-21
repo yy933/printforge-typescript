@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getModels, SortOption, getModelCount } from "@/lib/models";
 import { getCategoryBySlug } from "@/lib/categories";
 import { MODELS_PER_PAGE } from "@/lib/constants";
+import { getQueryParams } from "@/lib/helper";
 import type { CategoryPageProps } from "@/app/types";
 
 export default async function CategoryPage({
@@ -11,22 +12,21 @@ export default async function CategoryPage({
   searchParams,
 }: CategoryPageProps) {
   const { categoryName } = await params;
-  const sort = (await searchParams)?.sort?.toLowerCase() || "";
-  const q = (await searchParams)?.q?.toLowerCase() || "";
   const category = await getCategoryBySlug(categoryName);
-  const page = Number((await searchParams).page) || 1;
+  if (!category) return notFound();
+
+  const { search, sort, page } = getQueryParams(await searchParams);
 
   const modelsCount = await getModelCount({
     categorySlug: category.slug,
-    search: q,
+    search,
   });
   const totalPages = Math.ceil(modelsCount / MODELS_PER_PAGE);
-  if (!category) return notFound();
 
   const models = await getModels({
     categorySlug: category.slug,
     sort: sort as SortOption | undefined,
-    searchTerm: q,
+    searchTerm: search,
     page,
     modelsPerPage: MODELS_PER_PAGE,
   });
@@ -35,7 +35,7 @@ export default async function CategoryPage({
     <ModelsBrowser
       categoryName={category.name}
       models={models}
-      search={q}
+      search={search}
       totalPages={totalPages}
       currentPage={page}
     />
