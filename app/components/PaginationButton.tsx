@@ -2,12 +2,14 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 interface PaginationButtonProps {
   page: number;
-  isActive: boolean;
+  isActive?: boolean;
+  label?: string
 }
 
 export default function PaginationButton({
   page,
   isActive,
+  label
 }: PaginationButtonProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -27,7 +29,7 @@ export default function PaginationButton({
           : "border-gray-300 text-gray-700 hover:bg-gray-100"
       }`}
     >
-      {page}
+      {label || page}
     </button>
   );
 }
