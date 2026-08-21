@@ -1,5 +1,5 @@
 import PaginationButton from "@/app/components/PaginationButton";
-export default function PaginationControls() {
+export default function PaginationControls(totalPages: number) {
   return (
     <div className="flex justify-center gap-1">
       <PaginationButton page={1} />

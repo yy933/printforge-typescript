@@ -12,17 +12,19 @@ interface ModelsBrowserProps {
   categoryName?: string;
   page?: number;
   modelsPerPage?: number;
+  totalPages?: number;
 }
 export default function ModelsBrowser({
   models,
   search,
   categoryName,
+  totalPages
 }: ModelsBrowserProps) {
   const [isPending, startTransition] = useTransition();
 
   return (
     <BrowserProvider value={{ isPending, startTransition }}>
-      <PaginationControls />
+      <PaginationControls totalPages={totalPages}/>
       <SearchForm q={search} />
       <ModelsGrid
         isPending={isPending}
