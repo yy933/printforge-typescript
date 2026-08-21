@@ -5,6 +5,14 @@ export function getQueryParams(searchParams: {
 }) {
   const search = searchParams.search?.toLowerCase() || "";
   const sort = searchParams.sort?.toLowerCase() || "";
-  const page = Number(searchParams.page) || 1;
+
+  const rawPage = searchParams.page;
+  let page;
+  if (rawPage === undefined) {
+    page = 1;
+  } else {
+    const parsedPage = Number(rawPage);
+    page = Number.isNaN(parsedPage) ? 0 : parsedPage;
+  }
   return { search, sort, page };
 }
