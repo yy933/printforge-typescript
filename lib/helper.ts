@@ -18,14 +18,8 @@ export function getQueryParams(searchParams: {
   let sort;
   if (rawSort === undefined) {
     sort = "";
-  } else if (
-    rawSort === "alpha" ||
-    rawSort === "popular" ||
-    rawSort === "recent"
-  ) {
-    sort = rawSort;
   } else {
-    sort = null;
+    sort = ["alpha", "popular", "recent"].includes(rawSort) ? rawSort : null;
   }
   return { search, sort, page };
 }
