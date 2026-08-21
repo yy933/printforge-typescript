@@ -7,7 +7,7 @@ export default async function Page({ searchParams }: ModelsPageProps) {
   const sort = (await searchParams).sort?.toLowerCase() || "";
   const page = Number((await searchParams).page) || 1;
 
-  const modelsPerPage = 12;
+  const modelsPerPage = 6;
   const models = await getModels({
     searchTerm: q,
     sort: sort as SortOption | undefined,
