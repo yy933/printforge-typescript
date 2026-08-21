@@ -26,7 +26,6 @@ export default function ModelsBrowser({
 
   return (
     <BrowserProvider value={{ isPending, startTransition }}>
-      <PaginationControls totalPages={totalPages} currentPage={currentPage} />
       <SearchForm q={search} />
       <ModelsGrid
         isPending={isPending}
@@ -35,6 +34,7 @@ export default function ModelsBrowser({
         categoryName={categoryName}
         startTransition={startTransition}
       />
+      <PaginationControls totalPages={totalPages} currentPage={currentPage} />
     </BrowserProvider>
   );
 }
